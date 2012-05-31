@@ -2,7 +2,8 @@ require 'test_helper'
 
 class IdeasControllerTest < ActionController::TestCase
   setup do
-    @idea = ideas(:one)
+    @idea = FactoryGirl.create(:idea)
+    # @idea = ideas(:one)
   end
 
   test "should get index" do
@@ -18,7 +19,7 @@ class IdeasControllerTest < ActionController::TestCase
 
   test "should create idea" do
     assert_difference('Idea.count') do
-      post :create, idea: { description: @idea.description, name: @idea.name, picture: @idea.picture }
+      post :create, idea: { description: @idea.description, name: "_#{@idea.name}", picture: @idea.picture }
     end
 
     assert_redirected_to idea_path(assigns(:idea))

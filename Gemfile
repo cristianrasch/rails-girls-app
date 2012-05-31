@@ -25,6 +25,8 @@ gem 'heroku', group: :development
 
 group :development, :test do
   gem 'sqlite3'
+  gem 'factory_girl_rails', '~> 3.0'
+  gem 'faker'
 end
 
 gem 'pg', group: :production
